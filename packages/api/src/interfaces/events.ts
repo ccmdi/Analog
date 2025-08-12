@@ -20,10 +20,17 @@ export interface CalendarEvent {
     status: AttendeeStatus;
     comment?: string;
   };
-  metadata?: Record<string, unknown>;
+  metadata?: Metadata;
   conference?: Conference;
   recurrence?: Recurrence;
   recurringEventId?: string;
+}
+
+export interface Metadata extends Record<string, unknown> {
+  blockedTime?: {
+    before?: number;
+    after?: number;
+  };
 }
 
 export interface ConferenceEntryPoint {
